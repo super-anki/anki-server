@@ -1,0 +1,24 @@
+{
+  "name": "@super-anki/anki-server",
+  "version": "1.0.0",
+  "description": "Backend server to manage anki cars",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/super-anki/anki-server.git"
+  },
+  "keywords": [
+    "anki",
+    "cars",
+    "server"
+  ],
+  "author": "Vincent Talbot",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/super-anki/anki-server/issues"
+  },
+  "homepage": "https://github.com/super-anki/anki-server#readme"
+}
