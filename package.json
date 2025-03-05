@@ -4,6 +4,7 @@
   "description": "Backend server to manage anki cars",
   "main": "index.js",
   "scripts": {
+    "start": "tsx watch ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,7 +23,7 @@
   },
   "homepage": "https://github.com/super-anki/anki-server#readme",
   "dependencies": {
-    "@super-anki/anki-sdk": "^1.0.1",
+    "@super-anki/anki-sdk": "^1.0.4",
     "better-sse": "^0.14.1",
     "express": "^4.21.2",
     "log4js": "^6.9.1",
