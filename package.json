@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/super-anki/anki-server#readme",
   "dependencies": {
-    "@super-anki/anki-sdk": "^1.0.1"
+    "@super-anki/anki-sdk": "^1.0.1",
+    "express": "^4.21.2"
   }
 }
