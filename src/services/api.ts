@@ -15,6 +15,7 @@ import { VersionHandler } from "@/http/handlers/cars/version"
 import { ScanTrackHandler } from "@/http/handlers/track/scan"
 import type { Application, RequestHandler } from "express"
 import express from "express"
+import bodyParser from "body-parser"
 import type { Logger } from "log4js"
 
 type Route = {
@@ -46,6 +47,9 @@ export class ApiService {
 
   public constructor(port: number) {
     this.app = express()
+
+    this.app.use(bodyParser.json())
+    this.app.use(bodyParser.urlencoded({ extended: true }))
 
     this.registerRoutes()
 

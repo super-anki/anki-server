@@ -25,6 +25,7 @@
   "dependencies": {
     "@super-anki/anki-sdk": "^1.0.4",
     "better-sse": "^0.14.1",
+    "body-parser": "^1.20.3",
     "express": "^4.21.2",
     "log4js": "^6.9.1",
     "tsx": "^4.19.3"
