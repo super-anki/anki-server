@@ -1,5 +1,6 @@
 import { CarStore } from "@super-anki/anki-sdk"
 import type { Request, Response } from "express"
+import { Factory } from "@/common/logger"
 
 export function TurnHandler(req: Request, res: Response) {
   const car = CarStore.getInstance().getCar(req.params.id)
@@ -18,6 +19,8 @@ export function TurnHandler(req: Request, res: Response) {
     car?.uTurnJump()
     break
   }
+
+  Factory.getInstance().debug(`Turn for car ${car?.id} in direction ${req.body.direction}`)
 
   res.json({
     id: car?.id,
