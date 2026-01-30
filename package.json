@@ -39,7 +39,7 @@
   "dependencies": {
     "@super-anki/anki-sdk": "^1.1.0",
     "better-sse": "^0.14.1",
-    "body-parser": "^1.20.3",
+    "body-parser": "^2.2.2",
     "express": "^4.21.2",
     "log4js": "^6.9.1",
     "tsx": "^4.19.3"
