@@ -6,8 +6,10 @@
     "paths": {
       "@/*": ["src/*"]
     },
+    "outDir": "./dist",
+    "rootDir": "./src",
     "allowJs": true,
-    "noEmit": true,
+    "declaration": true,
     "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -15,5 +17,7 @@
     "strict": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true
-  }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

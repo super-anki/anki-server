@@ -2,10 +2,24 @@
   "name": "@super-anki/anki-server",
   "version": "1.0.0",
   "description": "Backend server to manage anki cars",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "anki-server": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
-    "start": "tsx watch ./src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsx watch ./src/cli.ts",
+    "build": "tsc",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "echo \"No tests yet\" && exit 0",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",

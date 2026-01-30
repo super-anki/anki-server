@@ -1,33 +1,17 @@
-import { EventEmitter } from "node:events"
-import { Factory } from "./common/logger"
-import { CarStore } from "@super-anki/anki-sdk"
-import { ApiService } from "./services/api"
-
-EventEmitter.defaultMaxListeners = Infinity
-
-const logger = Factory.getInstance()
-const port = process.env.PORT || 3000
-
-logger.info("Starting server...")
-CarStore.getInstance().startLooking()
-
-new ApiService(port)
-
-process.on("SIGINT", () => {
-  logger.info("Stopping server...")
-
-  const store = CarStore.getInstance()
-  const connectedCars = store.getCars().filter((car) => car.connected)
-  store.stopLooking()
-
-  logger.info(`Found ${connectedCars.length} connected cars`)
-  connectedCars.forEach((car) => {
-    logger.info(`Disconnecting car ${car.id}`)
-    car.disconnect().catch(logger.error)
-  })
-
-  setTimeout(() => {
-    logger.info("Server stopped")
-    process.exit(0)
-  }, 1500)
-})
+// Export services and utilities for library usage
+export { ApiService } from "./services/api"
+export { Factory as LoggerFactory } from "./common/logger"
+export * from "./http/handlers/cars/battery"
+export * from "./http/handlers/cars/cancel-lane-change"
+export * from "./http/handlers/cars/change-lane"
+export * from "./http/handlers/cars/connect"
+export * from "./http/handlers/cars/disconnect"
+export * from "./http/handlers/cars/lights"
+export * from "./http/handlers/cars/lights-pattern"
+export * from "./http/handlers/cars/list"
+export * from "./http/handlers/cars/offset"
+export * from "./http/handlers/cars/ping"
+export * from "./http/handlers/cars/speed"
+export * from "./http/handlers/cars/turn"
+export * from "./http/handlers/cars/version"
+export * from "./http/handlers/track/scan"
