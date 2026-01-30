@@ -329,6 +329,7 @@ The project includes GitHub Actions workflows for:
   - Automatic versioning using conventional commits
   - Changelog generation
   - Publishing to GitHub Packages
+  - **Note**: First-time setup requires configuration. See [RELEASE_SETUP.md](RELEASE_SETUP.md) for details.
 
 - **Dependabot** - Automatically updates dependencies
   - Daily checks for npm packages
