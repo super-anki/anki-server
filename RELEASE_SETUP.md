@@ -35,7 +35,7 @@ If this repository is under an **organization**:
 If the repository is under a personal account or you prefer more control:
 
 1. **Create a Personal Access Token**:
-   - Go to GitHub → Settings → Developer Settings → Personal access tokens → Fine-grained tokens
+   - Go to GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens
    - Click "Generate new token"
    - Set the following:
      - **Token name**: `Release Please Token`
