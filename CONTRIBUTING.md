@@ -144,6 +144,8 @@ When adding tests:
 
 ## Release Process
 
+**Note**: First-time setup of release automation requires additional configuration. See [RELEASE_SETUP.md](RELEASE_SETUP.md) for complete setup instructions.
+
 Releases are automated via GitHub Actions:
 
 1. Merge PRs to `main` branch
