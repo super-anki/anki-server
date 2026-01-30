@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/super-anki/anki-server/compare/anki-server-v1.1.0...anki-server-v1.1.1) (2026-01-30)
+
+
+### Bug Fixes
+
+* configure release-please workflow to support PAT authentication ([#17](https://github.com/super-anki/anki-server/issues/17)) ([2ad0750](https://github.com/super-anki/anki-server/commit/2ad0750afb46c9f51bffc5a5bfd1b17117d16aae))
+
 ## [1.1.0](https://github.com/super-anki/anki-server/compare/anki-server-v1.0.0...anki-server-v1.1.0) (2026-01-30)
 
 
