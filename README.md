@@ -40,7 +40,7 @@ npm run build
 
 ## Usage
 
-### Starting the Server
+### As a Standalone Server
 
 #### Development Mode (with auto-reload)
 
@@ -52,7 +52,27 @@ npm start
 
 ```bash
 npm run build
-node dist/index.js
+node dist/cli.js
+# Or if installed globally/locally:
+npx anki-server
+```
+
+### As a Library
+
+You can also use this package as a library in your Node.js application:
+
+```javascript
+import { ApiService, LoggerFactory } from '@super-anki/anki-server';
+import { CarStore } from '@super-anki/anki-sdk';
+
+// Start the API service
+const logger = LoggerFactory.getInstance();
+const port = 3000;
+
+logger.info("Starting server...");
+CarStore.getInstance().startLooking();
+
+new ApiService(port);
 ```
 
 ### Environment Variables
@@ -63,7 +83,7 @@ node dist/index.js
 Example:
 
 ```bash
-PORT=8080 NODE_ENV=production node dist/index.js
+PORT=8080 NODE_ENV=production node dist/cli.js
 ```
 
 ## API Endpoints
@@ -121,13 +141,11 @@ POST /cars/:id/lights
 **Body:**
 ```json
 {
-  "red": 255,
-  "green": 0,
-  "blue": 0
+  "lights": 255
 }
 ```
 
-Set RGB values for car lights (0-255).
+Set lights value for the car (numeric value).
 
 #### Set Lights Pattern
 
@@ -135,7 +153,22 @@ Set RGB values for car lights (0-255).
 POST /cars/:id/lights-pattern
 ```
 
-Apply predefined light patterns to the car.
+**Body:**
+```json
+{
+  "redStart": 0,
+  "redEnd": 255,
+  "greenStart": 0,
+  "greenEnd": 0,
+  "blueStart": 0,
+  "blueEnd": 0,
+  "target": 0,
+  "pattern": 1,
+  "cycle": 1000
+}
+```
+
+Apply custom light patterns to the car with RGB ranges and animation settings.
 
 #### Change Lane
 
@@ -146,11 +179,15 @@ POST /cars/:id/change-lane
 **Body:**
 ```json
 {
-  "offset": 68.0
+  "offset": 68.0,
+  "speed": 500,
+  "acceleration": 1000,
+  "hopIntent": 0,
+  "tag": 0
 }
 ```
 
-Changes the car's lane (positive values move right, negative move left).
+Changes the car's lane (positive values move right, negative move left). Optional parameters: `speed`, `acceleration`, `hopIntent`, and `tag`.
 
 #### Cancel Lane Change
 
@@ -164,6 +201,13 @@ Cancels an ongoing lane change.
 
 ```http
 POST /cars/:id/offset
+```
+
+**Body:**
+```json
+{
+  "offset": 0.0
+}
 ```
 
 Fine-tune the car's position within its current lane.
@@ -198,7 +242,14 @@ Sends a ping to verify car connectivity.
 POST /cars/:id/turn
 ```
 
-Controls car turning behavior.
+**Body:**
+```json
+{
+  "direction": "left"
+}
+```
+
+Controls car turning behavior. Valid directions: `"left"`, `"right"`, `"uturn"`, or `"uturn-jump"`.
 
 ### Track
 
@@ -208,7 +259,14 @@ Controls car turning behavior.
 POST /track/scan
 ```
 
-Initiates a track scan to map the track layout.
+**Body:**
+```json
+{
+  "carId": "car-id-here"
+}
+```
+
+Initiates a track scan to map the track layout using the specified car.
 
 ## Development
 
