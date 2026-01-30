@@ -2,8 +2,9 @@
   "name": "@super-anki/anki-server",
   "version": "1.0.0",
   "description": "Backend server to manage anki cars",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "bin": {
+    "anki-server": "dist/index.js"
+  },
   "files": [
     "dist"
   ],
