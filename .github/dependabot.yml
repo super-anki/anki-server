@@ -10,11 +10,10 @@ updates:
       anki-sdk:
         patterns:
           - "@super-anki/anki-sdk"
-    # Auto-merge minor and patch updates for anki-sdk
     open-pull-requests-limit: 10
     labels:
       - "dependencies"
-      - "anki-sdk"
+      - "npm"
 
   # Enable version updates for GitHub Actions
   - package-ecosystem: "github-actions"

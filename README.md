@@ -68,6 +68,8 @@ PORT=8080 NODE_ENV=production node dist/index.js
 
 ## API Endpoints
 
+> **Note:** Most endpoints use POST methods, even for read operations. This is intentional as the car communication requires sending commands to the Bluetooth device, making these operations more like RPC calls than traditional REST operations.
+
 ### Cars
 
 #### List Available Cars
