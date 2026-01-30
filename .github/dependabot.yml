@@ -1,0 +1,26 @@
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    # Group all anki-sdk updates together
+    groups:
+      anki-sdk:
+        patterns:
+          - "@super-anki/anki-sdk"
+    # Auto-merge minor and patch updates for anki-sdk
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "anki-sdk"
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "github-actions"
