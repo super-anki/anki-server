@@ -1,5 +1,7 @@
 # Release Please Setup Guide
 
+This guide provides setup instructions specifically for the `super-anki/anki-server` repository.
+
 ## Issue: GitHub Actions Permission Error
 
 The release workflow may fail with the error:
