@@ -30,12 +30,11 @@ jobs:
         run: npm ci
 
       - name: Release
-        uses: google-github-actions/release-please-action@v4
+        uses: googleapis/release-please-action@v4
         id: release
         with:
-          release-type: node
-          package-name: '@super-anki/anki-server'
-          changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false},{"type":"docs","section":"Documentation","hidden":false},{"type":"refactor","section":"Code Refactoring","hidden":false},{"type":"perf","section":"Performance Improvements","hidden":false}]'
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
 
       - name: Publish to GitHub Packages
         if: ${{ steps.release.outputs.release_created }}
