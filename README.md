@@ -369,10 +369,14 @@ If you get a port conflict:
 ## Contributing
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feat/amazing-feature`)
+2. Create a feature branch from `dev` (`git checkout dev && git pull origin dev && git checkout -b feat/amazing-feature`)
 3. Commit using conventional commits (`git commit -m 'feat: add amazing feature'`)
 4. Push to the branch (`git push origin feat/amazing-feature`)
-5. Open a Pull Request
+5. Open a Pull Request targeting the `dev` branch
+
+For detailed contribution guidelines, see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+Note: All feature PRs should target the `dev` branch. The `main` branch is reserved for production releases.
 
 ## License
 

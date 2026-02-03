@@ -5,6 +5,8 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    # Target dev branch for dependency updates
+    target-branch: "dev"
     # Group all anki-sdk updates together
     groups:
       anki-sdk:
@@ -20,6 +22,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    # Target dev branch for dependency updates
+    target-branch: "dev"
     labels:
       - "dependencies"
       - "github-actions"
