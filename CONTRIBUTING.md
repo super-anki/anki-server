@@ -11,9 +11,18 @@ Please be respectful and constructive in all interactions.
 1. Fork the repository
 2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/anki-server.git`
 3. Install dependencies: `npm install`
-4. Create a branch: `git checkout -b feat/my-feature` or `git checkout -b fix/my-bugfix`
+4. Create a branch from `dev`: `git checkout dev && git pull origin dev && git checkout -b feat/my-feature`
 
 ## Development Workflow
+
+### Branching Strategy
+
+This project uses a **dev branch workflow**:
+
+- **`main` branch**: Production-ready code. Merges trigger automatic releases.
+- **`dev` branch**: Active development branch. All feature PRs should target this branch.
+
+**Important**: Always create feature branches from `dev` and target your PRs to `dev`, not `main`.
 
 ### Making Changes
 
@@ -67,10 +76,11 @@ chore: update dependencies
 ### Pull Requests
 
 1. Push your branch to your fork
-2. Create a Pull Request against the `main` branch
+2. Create a Pull Request against the `dev` branch (not `main`)
 3. Ensure your PR title follows conventional commits format
 4. Provide a clear description of your changes
 5. Link any related issues
+6. Your branch will be automatically deleted after the PR is merged
 
 **PR Title Format:**
 ```
@@ -148,9 +158,10 @@ When adding tests:
 
 Releases are automated via GitHub Actions:
 
-1. Merge PRs to `main` branch
-2. Release Please action creates a release PR
-3. Merge the release PR to trigger:
+1. Merge PRs to `dev` branch for feature development
+2. Periodically, `dev` is merged to `main` to trigger a release
+3. Release Please action creates a release PR
+4. Merge the release PR to trigger:
    - Version bump
    - Changelog generation
    - GitHub Release creation
